@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "nombre": "Crema para peinar",
+      "precio": 16000,
+      "imagen": "imagenes/crempein.jpeg"
+    },
+    {
+      "id": 2,
+      "nombre": "Tratamiento Nutribela",
+      "precio": 19000,
+      "imagen": "imagenes/tratnutrib.jpeg"
+    }
+  ]
+  

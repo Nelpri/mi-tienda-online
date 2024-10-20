@@ -1,0 +1,138 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* Secciones dinámicas */
+.seccion {
+  display: none; /* Ocultamos las secciones por defecto */
+}
+
+.seccion.activa {
+  display: block; /* Mostramos solo la sección activa */
+}
+
+/* Carrito de compras */
+#carrito {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+#carrito-contenido {
+  margin-bottom: 20px;
+}
+
+.producto-carrito {
+  transition: opacity 0.3s ease;
+}
+
+.producto-carrito.eliminado {
+  opacity: 0;
+}
+
+.producto-carrito button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.producto-carrito button:hover {
+  background-color: #c82333;
+}
+
+#total {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.producto {
+  width: calc(100% / 3 - 30px); /* Tres columnas en pantallas grandes */
+}
+
+@media (max-width: 768px) {
+  .producto {
+    width: calc(100% / 2 - 30px); /* Dos columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .producto {
+    width: 100%; /* Una columna en pantallas pequeñas */
+  }
+}
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 15px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  display: inline-block;
+  width: 200px;
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.btn-carrito {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-carrito:hover {
+  background-color: #218838;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
