@@ -1,91 +1,122 @@
+// Datos de ejemplo de productos
+const productos = [
+    { id: 1, nombre: 'Crema para peinar', precio: 16000, imagen: 'imagenes/crempein.jpeg' },
+    { id: 2, nombre: 'Tratamiento Nutribela', precio: 19000, imagen: 'imagenes/tratnutrib.jpeg' },
+];
+
+// Inicializar el carrito
 let carrito = [];
 
-// Función para cargar los productos desde el archivo JSON
-window.addEventListener('DOMContentLoaded', () => {
-  const carritoGuardado = localStorage.getItem('carrito');
-  if (carritoGuardado) {
-    carrito = JSON.parse(carritoGuardado);
-    actualizarCarrito(); // Aseguramos que el carrito se actualice al cargar la página
-  }
-  cargarProductos(); // Cargamos los productos
+// Función para mostrar la sección activa
+function mostrarSeccion(seccion) {
+    const secciones = document.querySelectorAll('.seccion');
+    secciones.forEach(s => s.classList.remove('activa')); // Ocultamos todas las secciones
+    document.getElementById(seccion).classList.add('activa'); // Mostramos la sección seleccionada
+}
+
+// Eventos de navegación
+document.getElementById('btn-inicio').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostrarSeccion('inicio');
 });
 
-// Función para cargar los productos
+document.getElementById('btn-productos').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostrarSeccion('catalogo');
+    cargarProductos(); // Cargar productos cuando se muestre la sección
+});
+
+document.getElementById('btn-carrito').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostrarSeccion('carrito');
+    mostrarCarrito(); // Mostrar carrito cuando se muestre la sección
+});
+
+document.getElementById('btn-contacto').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostrarSeccion('contacto'); // Mostrar sección de contacto
+});
+
+// Cargar productos en la sección de catálogo
 function cargarProductos() {
-  fetch('productos.json')
-  .then(response => response.json())
-  .then(productos => mostrarCatalogo(productos))
-  .catch(error => console.error('Error al cargar los productos:', error));
+    const container = document.getElementById('productos-container');
+    container.innerHTML = ''; // Limpiar el contenido anterior
 
-}
-
-// Función para mostrar el catálogo de productos
-function mostrarCatalogo(productos) {
-  const catalogo = document.getElementById('catalogo');
-  catalogo.innerHTML = ''; // Aseguramos que esté limpio antes de agregar los productos
-  
-  productos.forEach(producto => {
-    const divProducto = document.createElement('div');
-    divProducto.classList.add('producto');
-    divProducto.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}">
-      <h3>${producto.nombre}</h3>
-      <p>Precio: $${producto.precio}</p>
-      <button class="btn-carrito" data-id="${producto.id}">Añadir al carrito</button>
-    `;
-    catalogo.appendChild(divProducto);
-  });
-
-  // Asignar evento a los botones de "Añadir al carrito"
-  const botonesCarrito = document.querySelectorAll('.btn-carrito');
-  botonesCarrito.forEach(boton => {
-    boton.addEventListener('click', () => {
-      const productoId = boton.getAttribute('data-id');
-      const productoSeleccionado = productos.find(p => p.id == productoId);
-      agregarAlCarrito(productoSeleccionado);
+    productos.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto');
+        productoDiv.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio}</p>
+            <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+        `;
+        container.appendChild(productoDiv);
     });
-  });
 }
 
-// Función para agregar productos al carrito
-function agregarAlCarrito(producto) {
-  carrito.push(producto);
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-  alert(`${producto.nombre} ha sido añadido al carrito.`);
-  actualizarCarrito();
+
+// Agregar producto al carrito
+function agregarAlCarrito(id) {
+    const producto = productos.find(p => p.id === id);
+    if (producto) {
+        carrito.push(producto);
+        mostrarMensaje(`Añadido al carrito: ${producto.nombre}`);
+        actualizarTotal();
+    }
 }
 
-// Función para actualizar el carrito
-function actualizarCarrito() {
-  const carritoContainer = document.getElementById('carrito-contenido');
-  carritoContainer.innerHTML = ''; // Limpiamos el contenedor del carrito
+// Mostrar el carrito
+function mostrarCarrito() {
+    const carritoContenido = document.getElementById('carrito-contenido');
+    carritoContenido.innerHTML = ''; // Limpiar contenido anterior
 
-  if (carrito.length === 0) {
-    carritoContainer.innerHTML = '<p>El carrito está vacío.</p>';
-  } else {
-    carrito.forEach((item, index) => {
-      const productoCarrito = document.createElement('div');
-      productoCarrito.classList.add('producto-carrito');
-      productoCarrito.innerHTML = `
-        <p>${item.nombre} - $${item.precio}</p>
-        <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
-      `;
-      carritoContainer.appendChild(productoCarrito);
+    if (carrito.length === 0) {
+        carritoContenido.innerHTML = '<p>El carrito está vacío.</p>';
+        return;
+    }
+
+    carrito.forEach((producto, index) => {
+        const productoDiv = document.createElement('div');
+        productoDiv.innerHTML = `
+            <p>${producto.nombre} - $${producto.precio} 
+            <button onclick="eliminarDelCarrito(${index})">Eliminar</button></p>
+        `;
+        carritoContenido.appendChild(productoDiv);
     });
-  }
-
-  const totalContainer = document.getElementById('total');
-  const total = carrito.reduce((acc, item) => acc + item.precio, 0);
-  totalContainer.textContent = `Total: $${total}`;
 }
 
-// Función para eliminar productos del carrito
-function eliminarDelCarrito(indice) {
-  const item = document.querySelectorAll('.producto-carrito')[indice];
-  item.classList.add('eliminado');
-  setTimeout(() => {
-    carrito.splice(indice, 1);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-  }, 300); // Tiempo para el efecto de desaparición
+// Eliminar producto del carrito
+function eliminarDelCarrito(index) {
+    const producto = carrito.splice(index, 1)[0]; // Eliminar el producto
+    mostrarMensaje(`Eliminado del carrito: ${producto.nombre}`);
+    mostrarCarrito(); // Actualizar el carrito visible
+    actualizarTotal(); // Actualizar total
 }
+
+// Reiniciar carrito
+function reiniciarCarrito() {
+    carrito = [];
+    mostrarCarrito();
+    actualizarTotal();
+    mostrarMensaje('Carrito reiniciado.');
+}
+
+// Actualizar total del carrito
+function actualizarTotal() {
+    const total = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+    document.getElementById('total').textContent = `Total: $${total}`;
+}
+
+// Mostrar mensaje
+function mostrarMensaje(texto) {
+    const mensaje = document.getElementById('mensaje');
+    mensaje.textContent = texto;
+    mensaje.style.display = 'block';
+    setTimeout(() => {
+        mensaje.style.display = 'none';
+    }, 3000); // Mensaje desaparece después de 3 segundos
+}
+
+// Mostrar la sección de inicio al cargar
+mostrarSeccion('inicio');

@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Productos</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Conectamos con CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Conectamos con CSS -->
 </head>
-
 <body>
-  <header>
-    <h1>Mi Tienda Virtual</h1>
-    <nav>
-      <a href="#" id="btn-inicio">Inicio</a>
-      <a href="#" id="btn-productos">Productos</a>
-      <a href="#" id="btn-carrito">Carrito</a>
-      <a href="https://www.tienda-contacto.com" target="_blank" id="btn-contacto">Contacto</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Mi Tienda Virtual</h1>
+        <nav>
+            <a href="#" id="btn-inicio" tabindex="0">Inicio</a>
+            <a href="#" id="btn-productos" tabindex="0">Productos</a>
+            <a href="#" id="btn-carrito" tabindex="0">Carrito</a>
+            <a href="#" id="btn-contacto" tabindex="0">Contacto</a>
+        </nav>
+    </header>
 
-  <main>
-    <!-- Sección de Inicio -->
-    <section id="inicio" class="seccion">
-      <h2>Bienvenido a Mi Tienda Virtual</h2>
-      <p>En nuestra tienda encontrarás productos de alta calidad para tu bienestar personal. 
-        Ofrecemos una selección exclusiva de artículos para el cuidado personal y mucho más.</p>
-    </section>
+    <main>
+        <!-- Sección de Inicio -->
+        <section id="inicio" class="seccion activa">
+            <h2>Bienvenido a Mi Tienda Virtual</h2>
+            <p>En nuestra tienda encontrarás productos de alta calidad para tu bienestar personal. 
+              Ofrecemos una selección exclusiva de artículos para el cuidado personal y mucho más.</p>
+            <div class="productos-inicio">
+                <a href="#catalogo">
+                    <img src="imagenes/crempein.jpeg" alt="Crema para peinar">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/tratnutrib.jpeg" alt="Tratamiento Nutribela">
+                </a>
+            </div>
+        </section>
 
-    <!-- Sección de Productos -->
-    <section id="catalogo" class="seccion">
-      <h2>Catálogo de Productos</h2>
-      <div class="producto">
-        <img src="imagenes/crempein.jpeg" alt="Producto 1">
-        <h3>Crema para peinar</h3>
-        <p>Precio: $16.000</p>
-        <button class="btn-carrito">Añadir al carrito</button>
-      </div>
+        <!-- Sección de Productos -->
+        <section id="catalogo" class="seccion">
+            <h2>Catálogo de Productos</h2>
+            <div id="productos-container"></div>
+        </section>
 
-      <div class="producto">
-        <img src="imagenes/tratnutrib.jpeg" alt="Producto 2">
-        <h3>Tratamiento Nutribela</h3>
-        <p>Precio: $19.000</p>
-        <button class="btn-carrito">Añadir al carrito</button>
-      </div>
-    </section>
+        <!-- Sección del carrito de compras -->
+        <section id="carrito" class="seccion">
+            <h2>Carrito de Compras</h2>
+            <div id="carrito-contenido">
+                <p>El carrito está vacío.</p>
+            </div>
+            <p id="total">Total: $0</p>
+            <button id="btn-reiniciar" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
+        </section>
+        
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="seccion">
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta, no dudes en <a href="https://www.tienda-contacto.com" target="_blank">contactarnos</a>.</p>
+        </section>
+        
+        <div id="mensaje" class="mensaje" role="alert"></div> <!-- Mensaje de producto añadido -->
+    </main>
 
-    <!-- Sección del carrito de compras -->
-    <section id="carrito" class="seccion">
-      <h2>Carrito de Compras</h2>
-      <div id="carrito-contenido">
-        <p>El carrito está vacío.</p>
-      </div>
-      <h3 id="total">Total: $0</h3>
-    </section>
-  </main>
+    <footer>
+        <p>Derechos reservados &copy; 2024 Mi Tienda</p>
+    </footer>
 
-  <footer>
-    <p>Derechos reservados &copy; 2024 Mi Tienda</p>
-  </footer>
-
-  <script src="js/script.js"></script>  <!-- Conectamos con JS -->
+    <script src="script.js"></script>  <!-- Conectamos con JS -->
 </body>
-
 </html>

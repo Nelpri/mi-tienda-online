@@ -1,138 +1,106 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --color-primario: #3498db;
+  --color-secundario: #2ecc71;
+  --color-terciario: #e74c3c;
+  --color-fondo-claro: #ecf0f1;
+  --color-fondo-oscuro: #34495e;
+  --color-texto-claro: #ffffff;
+  --color-texto-oscuro: #2c3e50;
 }
 
 body {
+  background-color: var(--color-fondo-claro);
+  color: var(--color-texto-oscuro);
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 10px;
   text-align: center;
 }
 
-nav a {
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
+h1 {
+  font-size: 24px;
+  margin: 0; /* Añadido para evitar margen por defecto */
 }
 
-h1, h2 {
-  margin-bottom: 20px;
-}
-
-/* Secciones dinámicas */
-.seccion {
-  display: none; /* Ocultamos las secciones por defecto */
-}
-
-.seccion.activa {
-  display: block; /* Mostramos solo la sección activa */
-}
-
-/* Carrito de compras */
-#carrito {
+section {
   padding: 20px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  margin-top: 20px;
+  display: none; /* Ocultamos todas las secciones por defecto */
 }
 
-#carrito-contenido {
-  margin-bottom: 20px;
+section.activa {
+  display: block; /* Solo mostramos la sección activa */
 }
 
-.producto-carrito {
-  transition: opacity 0.3s ease;
-}
-
-.producto-carrito.eliminado {
-  opacity: 0;
-}
-
-.producto-carrito button {
-  background-color: #dc3545;
-  color: white;
+button {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
   border: none;
-  padding: 5px;
+  padding: 10px 20px;
+  margin: 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.producto-carrito button:hover {
-  background-color: #c82333;
+button:hover {
+  background-color: var(--color-secundario);
 }
 
-#total {
-  font-size: 1.2em;
-  font-weight: bold;
+#agregar-producto {
+  background-color: var(--color-secundario);
 }
 
-#catalogo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+#eliminar-producto {
+  background-color: var(--color-terciario);
 }
 
-.producto {
-  width: calc(100% / 3 - 30px); /* Tres columnas en pantallas grandes */
+#vaciar-carrito {
+  background-color: var(--color-fondo-oscuro);
+  color: var(--color-texto-claro);
 }
 
-@media (max-width: 768px) {
-  .producto {
-    width: calc(100% / 2 - 30px); /* Dos columnas en pantallas medianas */
-  }
-}
-
-@media (max-width: 480px) {
-  .producto {
-    width: 100%; /* Una columna en pantallas pequeñas */
-  }
-}
-
-.producto {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 15px;
-  padding: 15px;
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
   text-align: center;
-  border-radius: 10px;
-  display: inline-block;
-  width: 200px;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Estilos para el mensaje de productos añadidos/eliminados */
+#mensaje {
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: none; /* El mensaje será controlado con JavaScript */
+}
+.producto {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
 }
 
 .producto img {
   max-width: 100%;
   height: auto;
-  border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
 }
 
-.btn-carrito {
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btn-carrito:hover {
-  background-color: #218838;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+/* Estilos adicionales para las imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
