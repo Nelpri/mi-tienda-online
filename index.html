@@ -4,42 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Tienda Online</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Conectamos con CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Mi Tienda Virtual</h1>
         <nav>
-            <a href="#" id="btn-inicio" tabindex="0">Inicio</a>
-            <a href="#" id="btn-productos" tabindex="0">Productos</a>
-            <a href="#" id="btn-carrito" tabindex="0">Carrito</a>
-            <a href="#" id="btn-contacto" tabindex="0">Contacto</a>
+            <a href="#" id="btn-inicio" tabindex="0" aria-label="Ir a la sección de inicio">Inicio</a>
+            <a href="#" id="btn-productos" tabindex="0" aria-label="Ir a la sección de productos">Productos</a>
+            <a href="#" id="btn-carrito" tabindex="0" aria-label="Ir a la sección del carrito">Carrito</a>
+            <a href="#" id="btn-contacto" tabindex="0" aria-label="Ir a la sección de contacto">Contacto</a>
         </nav>
     </header>
 
     <main>
-        <!-- Sección de Inicio -->
         <section id="inicio" class="seccion activa">
             <h2>Bienvenido a Mi Tienda Virtual</h2>
-            <p>En nuestra tienda encontrarás productos de alta calidad para tu bienestar personal. 
-              Ofrecemos una selección exclusiva de artículos para el cuidado personal y mucho más.</p>
-            <div class="productos-inicio">
+            <p>En nuestra tienda encontrarás productos de alta calidad para tu bienestar personal.</p>
+            <div class="productos-mosaico">
                 <a href="#catalogo">
-                    <img src="imagenes/crempein.jpeg" alt="Crema para peinar">
+                    <img src="imagenes/crempein.jpeg" alt="Crema para peinar de alta calidad">
                 </a>
                 <a href="#catalogo">
-                    <img src="imagenes/tratnutrib.jpeg" alt="Tratamiento Nutribela">
+                    <img src="imagenes/tratnutrib.jpeg" alt="Tratamiento Nutribela para el cuidado del cabello">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/balsmlabial.webp" alt="Bálsamo labial hidratante">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/desold.webp" alt="Desodorante Old Spice">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/loclimpia.webp" alt="Loción limpiadora">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/shamelv.webp" alt="Shampoo Elvive Hialurónico">
+                </a>
+                <a href="#catalogo">
+                    <img src="imagenes/shamold.webp" alt="Shampoo Old Spice">
                 </a>
             </div>
         </section>
 
-        <!-- Sección de Productos -->
         <section id="catalogo" class="seccion">
             <h2>Catálogo de Productos</h2>
-            <div id="productos-container"></div>
+            <div id="productos-container" class="productos-mosaico"></div>
         </section>
 
-        <!-- Sección del carrito de compras -->
         <section id="carrito" class="seccion">
             <h2>Carrito de Compras</h2>
             <div id="carrito-contenido">
@@ -49,19 +60,18 @@
             <button id="btn-reiniciar" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
         </section>
         
-        <!-- Sección de Contacto -->
         <section id="contacto" class="seccion">
             <h2>Contacto</h2>
-            <p>Si tienes alguna pregunta, no dudes en <a href="https://www.tienda-contacto.com" target="_blank">contactarnos</a>.</p>
+            <p>Si tienes alguna pregunta, no dudes en <a href="https://www.tienda-contacto.com" target="_blank" aria-label="Contactarnos">contactarnos</a>.</p>
         </section>
-        
-        <div id="mensaje" class="mensaje" role="alert"></div> <!-- Mensaje de producto añadido -->
+
+        <div id="mensaje" class="mensaje" role="alert"></div>
     </main>
 
     <footer>
         <p>Derechos reservados &copy; 2024 Mi Tienda</p>
     </footer>
 
-    <script src="script.js"></script>  <!-- Conectamos con JS -->
+    <script src="script.js"></script>
 </body>
 </html>

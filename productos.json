@@ -10,6 +10,36 @@
       "nombre": "Tratamiento Nutribela",
       "precio": 19000,
       "imagen": "imagenes/tratnutrib.jpeg"
+    },
+    {
+      "id": 3,
+      "nombre": "Balsamo Lavial",
+      "precio": 8500,
+      "imagen": "imagenes/balsmlabial.webp"
+    },
+    {
+      "id": 4,
+      "nombre": "Desodorante Old Spaice",
+      "precio": 20400,
+      "imagen": "imagenes/desold.webp"
+    },
+    {
+      "id": 5,
+      "nombre": "Locion Limpiadora",
+      "precio": 74000,
+      "imagen": "imagenes/loclimpia.webp"
+    },
+    {
+      "id": 6,
+      "nombre": "Shampoo el vive Hialuronico",
+      "precio": 24100,
+      "imagen": "imagenes/shamelv.webp"
+    },
+    {
+      "id": 7,
+      "nombre": "Shampoo Old Spaice",
+      "precio": 39000,
+      "imagen": "imagenes/shamold.webp"
     }
   ]
   
