@@ -13,19 +13,19 @@
     },
     {
       "id": 3,
-      "nombre": "Balsamo Lavial",
+      "nombre": "Bálsamo Lavial",
       "precio": 8500,
       "imagen": "imagenes/balsmlabial.webp"
     },
     {
       "id": 4,
-      "nombre": "Desodorante Old Spaice",
+      "nombre": "Desodorante Old Spice",
       "precio": 20400,
       "imagen": "imagenes/desold.webp"
     },
     {
       "id": 5,
-      "nombre": "Locion Limpiadora",
+      "nombre": "Loción Limpiadora",
       "precio": 74000,
       "imagen": "imagenes/loclimpia.webp"
     },
@@ -37,7 +37,7 @@
     },
     {
       "id": 7,
-      "nombre": "Shampoo Old Spaice",
+      "nombre": "Shampoo Old Spice",
       "precio": 39000,
       "imagen": "imagenes/shamold.webp"
     }
