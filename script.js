@@ -1,11 +1,11 @@
 const productos = [
-    { id: 1, nombre: 'Crema para peinar', precio: 16000, imagen: 'imagenes/crempein.jpeg' },
-    { id: 2, nombre: 'Tratamiento Nutribela', precio: 19000, imagen: 'imagenes/tratnutrib.jpeg' },
-    { id: 3, nombre: 'Bálsamo Labial', precio: 8500, imagen: 'imagenes/balsmlabial.webp' },
-    { id: 4, nombre: 'Desodorante Old Spice', precio: 20400, imagen: 'imagenes/desold.webp' },
-    { id: 5, nombre: 'Loción Limpiadora', precio: 74000, imagen: 'imagenes/loclimpia.webp' },
-    { id: 6, nombre: 'Shampoo Elvive Hialurónico', precio: 24100, imagen: 'imagenes/shamelv.webp' },
-    { id: 7, nombre: 'Shampoo Old Spice', precio: 39000, imagen: 'imagenes/shamold.webp' },
+    { id: 1, nombre: 'Crema para peinar', precio: 16000, imagen: 'imagenes/crempein.jpeg', cantidad: 5 },
+    { id: 2, nombre: 'Tratamiento Nutribela', precio: 19000, imagen: 'imagenes/tratnutrib.jpeg',  cantidad: 1 },
+    { id: 3, nombre: 'Bálsamo Labial', precio: 8500, imagen: 'imagenes/balsmlabial.webp', cantidad: 5 },
+    { id: 4, nombre: 'Desodorante Old Spice', precio: 20400, imagen: 'imagenes/desold.webp', cantidad: 5 },
+    { id: 5, nombre: 'Loción Limpiadora', precio: 74000, imagen: 'imagenes/loclimpia.webp', cantidad: 0 },
+    { id: 6, nombre: 'Shampoo Elvive Hialurónico', precio: 24100, imagen: 'imagenes/shamelv.webp', cantidad: 5 },
+    { id: 7, nombre: 'Shampoo Old Spice', precio: 39000, imagen: 'imagenes/shamold.webp', cantidad: 5 },
 ];
 
 let carrito = [];
@@ -45,11 +45,16 @@ function cargarProductos() {
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
+        
+        // Si la cantidad es 0, mostrar "Agotado"
         productoDiv.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
             <p>Precio: $${producto.precio}</p>
-            <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+            ${producto.cantidad > 0 ? 
+                `<button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>` : 
+                `<span class="agotado">Agotado</span>`
+            }
         `;
         container.appendChild(productoDiv);
     });
@@ -58,18 +63,35 @@ function cargarProductos() {
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
 
-    // Verificar si el producto ya está en el carrito
+    if (producto.cantidad === 0) {
+        mostrarMensaje(`El producto ${producto.nombre} está agotado.`);
+        return;
+    }
+
     const productoEnCarrito = carrito.find(p => p.id === id);
+    
     if (productoEnCarrito) {
-        // Si el producto ya está, incrementar la cantidad
-        productoEnCarrito.cantidad++;
-        mostrarMensaje(`Se incrementó la cantidad de ${producto.nombre} en el carrito.`);
+        if (productoEnCarrito.cantidad < producto.cantidad) {
+            productoEnCarrito.cantidad++;
+            mostrarMensaje(`Se incrementó la cantidad de ${producto.nombre} en el carrito.`);
+        } else {
+            mostrarMensaje(`No hay más unidades de ${producto.nombre} disponibles.`);
+        }
     } else {
-        // Si no está, añadirlo al carrito con cantidad 1
         carrito.push({ ...producto, cantidad: 1 });
         mostrarMensaje(`Agregaste ${producto.nombre} al carrito!`);
     }
+
     mostrarCarrito();
+    actualizarResumenCarrito();
+}
+
+function actualizarResumenCarrito() {
+    const resumenTexto = document.getElementById('resumen-texto');
+    const totalArticulos = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+    const totalPrecio = carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
+
+    resumenTexto.innerText = `Carrito: ${totalArticulos} artículos - Total: $${totalPrecio}`;
 }
 
 function mostrarCarrito() {
@@ -83,7 +105,7 @@ function mostrarCarrito() {
     }
 
     let total = 0;
-    carrito.forEach((producto, index) => {
+    carrito.forEach((producto) => {
         total += producto.precio * producto.cantidad;
         carritoContenido.innerHTML += `
             <p>${producto.nombre} - $${producto.precio} (x${producto.cantidad}) 
@@ -100,34 +122,34 @@ function eliminarDelCarrito(id) {
     if (productoIndex !== -1) {
         const producto = carrito[productoIndex];
         if (producto.cantidad > 1) {
-            // Si hay más de una cantidad, reducir la cantidad
             producto.cantidad--;
             mostrarMensaje(`Se redujo la cantidad de ${producto.nombre} en el carrito.`);
         } else {
-            // Si solo queda uno, eliminarlo del carrito
             carrito.splice(productoIndex, 1);
             mostrarMensaje(`Se eliminó ${producto.nombre} del carrito.`);
         }
     }
     mostrarCarrito();
+    actualizarResumenCarrito();
 }
 
-function mostrarMensaje(mensaje) {
-    const mensajeDiv = document.getElementById('mensaje');
-    mensajeDiv.innerText = mensaje;
-    mensajeDiv.style.display = 'block';
+function mostrarMensaje(texto) {
+    const mensajeContainer = document.getElementById('mensaje-container');
+    mensajeContainer.innerText = texto;
+    mensajeContainer.style.display = 'block';
+
     setTimeout(() => {
-        mensajeDiv.style.display = 'none';
+        mensajeContainer.style.display = 'none';
     }, 3000);
 }
 
 function reiniciarCarrito() {
     carrito = [];
     mostrarCarrito();
+    actualizarResumenCarrito();
     mostrarMensaje('Carrito reiniciado.');
 }
 
-// Mostrar la sección de inicio al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     mostrarSeccion('inicio');
 });

@@ -1,11 +1,15 @@
 :root {
-  --color-primario: #3498db;
-  --color-secundario: #2ecc71;
-  --color-terciario: #e74c3c;
-  --color-fondo-claro: #ecf0f1;
-  --color-fondo-oscuro: #34495e;
-  --color-texto-claro: #ffffff;
-  --color-texto-oscuro: #2c3e50;
+  --color-primario: #3B82F6; /* Azul brillante */
+  --color-secundario: #080cf4; /* Verde esmeralda */
+  --color-terciario: #D1D5DB; /* Gris claro */
+  --color-fondo-claro: #F3F4F6; /* Fondo claro */
+  --color-fondo-oscuro: #1F2937; /* Gris oscuro */
+  --color-texto-claro: #FFFFFF; /* Texto claro */
+  --color-texto-oscuro: #111827; /* Texto oscuro */
+  --color-mensaje-exito: #E5FFFA; /* Fondo mensaje de éxito */
+  --color-texto-exito: #047857; /* Texto mensaje de éxito */
+  --color-mensaje-error: #60d5f9; /* Fondo mensaje de error */
+  --color-texto-error: #4f06ee; /* Texto mensaje de error */
 }
 
 body {
@@ -45,6 +49,7 @@ button {
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -66,10 +71,31 @@ button:hover {
 }
 
 #productos-container .producto {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-terciario);
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  background-color: var(--color-fondo-claro);
+  transition: transform 0.3s;
+}
+
+#productos-container .producto:hover {
+  transform: scale(1.05);
+}
+
+.resumen-carrito {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#catalogo {
+  position: relative;
 }
 
 footer {
@@ -89,6 +115,19 @@ footer {
   margin-top: 10px;
   border-radius: 5px;
   display: none;
+}
+
+.mensaje-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--color-mensaje-error);
+  color: var(--color-texto-error);
+  border: 1px solid var(--color-mensaje-error);
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  z-index: 1000;
 }
 
 @media (max-width: 600px) {
