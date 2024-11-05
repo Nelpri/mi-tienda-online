@@ -3,43 +3,50 @@
       "id": 1,
       "nombre": "Crema para peinar",
       "precio": 16000,
-      "imagen": "imagenes/crempein.jpeg"
+      "imagen": "imagenes/crempein.jpeg",
+      "cantidad": 5
     },
     {
       "id": 2,
       "nombre": "Tratamiento Nutribela",
       "precio": 19000,
-      "imagen": "imagenes/tratnutrib.jpeg"
+      "imagen": "imagenes/tratnutrib.jpeg",
+      "cantidad": 2
     },
     {
       "id": 3,
       "nombre": "Bálsamo Lavial",
       "precio": 8500,
-      "imagen": "imagenes/balsmlabial.webp"
+      "imagen": "imagenes/balsmlabial.webp",
+      "cantidad": 5
     },
     {
       "id": 4,
       "nombre": "Desodorante Old Spice",
       "precio": 20400,
-      "imagen": "imagenes/desold.webp"
+      "imagen": "imagenes/desold.webp",
+      "cantidad": 1
     },
     {
       "id": 5,
       "nombre": "Loción Limpiadora",
       "precio": 74000,
-      "imagen": "imagenes/loclimpia.webp"
+      "imagen": "imagenes/loclimpia.webp",
+      "cantidad": 5
     },
     {
       "id": 6,
       "nombre": "Shampoo el vive Hialuronico",
       "precio": 24100,
-      "imagen": "imagenes/shamelv.webp"
+      "imagen": "imagenes/shamelv.webp",
+      "cantidad": 5
     },
     {
       "id": 7,
       "nombre": "Shampoo Old Spice",
       "precio": 39000,
-      "imagen": "imagenes/shamold.webp"
+      "imagen": "imagenes/shamold.webp",
+      "cantidad": 5
     }
   ]
   
