@@ -1,7 +1,7 @@
 let productos = [];
 let carrito = [];
 
-// Función para cargar productos desde productos.json
+// Cargar productos desde productos.json
 async function cargarProductosDesdeJSON() {
     try {
         const respuesta = await fetch('productos.json');
@@ -15,23 +15,24 @@ async function cargarProductosDesdeJSON() {
     }
 }
 
-// Función para mostrar la sección seleccionada
+// Mostrar la sección seleccionada en el menú
 function mostrarSeccion(seccion) {
     const secciones = document.querySelectorAll('.seccion');
     secciones.forEach(s => s.classList.remove('activa'));
     document.getElementById(seccion).classList.add('activa');
 }
 
-// Configurar botones de navegación
+// Configuración de los botones de navegación
 document.getElementById('btn-inicio').addEventListener('click', (e) => {
     e.preventDefault();
     mostrarSeccion('inicio');
+    cargarProductos(); // Recargar productos solo en la sección inicio
 });
 
 document.getElementById('btn-productos').addEventListener('click', (e) => {
     e.preventDefault();
     mostrarSeccion('catalogo');
-    cargarProductosDesdeJSON(); // Llamar a cargar productos desde JSON
+    cargarProductosDesdeJSON(); // Cargar productos al abrir el catálogo
 });
 
 document.getElementById('btn-carrito').addEventListener('click', (e) => {
@@ -49,6 +50,7 @@ document.getElementById('btn-contacto').addEventListener('click', (e) => {
 function cargarProductos() {
     const container = document.getElementById('productos-container');
     container.innerHTML = '';
+    const seccionActiva = document.querySelector('.seccion.activa').id; // Detectar la sección activa
 
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
@@ -64,9 +66,19 @@ function cargarProductos() {
                 `<span class="agotado">Agotado</span>`
             }
         `;
+
+        // Mostrar características solo en la sección inicio
+        if (seccionActiva === 'inicio') {
+            const caracteristicasDiv = document.createElement('div');
+            caracteristicasDiv.classList.add('caracteristicas');
+            caracteristicasDiv.innerHTML = `<p>${producto.caracteristicas}</p>`;
+            productoDiv.appendChild(caracteristicasDiv);
+        }
+        
         container.appendChild(productoDiv);
     });
 }
+
 
 // Agregar un producto al carrito
 function agregarAlCarrito(id) {

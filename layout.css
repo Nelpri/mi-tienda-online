@@ -1,0 +1,43 @@
+/* Layout: Header y Footer */
+header {
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: var(--color-primario);
+    color: var(--color-texto-exito);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Sección y contenedor de productos */
+  section {
+    padding: 20px;
+    display: none;
+  }
+  
+  section.activa {
+    display: block;
+  }
+  
+  #catalogo {
+    position: relative;
+  }
+
+  /* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  footer p {
+    font-size: 0.9em;
+  }
+}
+
+  
