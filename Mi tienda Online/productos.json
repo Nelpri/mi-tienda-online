@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "nombre": "Crema para peinar",
+    "precio": 16000,
+    "imagen": "imagenes/crempein.jpeg",
+    "cantidad": 3,
+    "caracteristicas": "Hidrata y define los rizos sin dejar residuos grasos."
+  },
+  {
+    "id": 2,
+    "nombre": "Tratamiento Nutribela",
+    "precio": 19000,
+    "imagen": "imagenes/tratnutrib.jpeg",
+    "cantidad": 2,
+    "caracteristicas": "Nutre profundamente el cabello, ideal para cabellos maltratados."
+  },
+  {
+    "id": 3,
+    "nombre": "Bálsamo Labial",
+    "precio": 8500,
+    "imagen": "imagenes/balsmlabial.jpg",
+    "cantidad": 5,
+    "caracteristicas": "Hidrata y suaviza los labios con un toque de color."
+  },
+  {
+    "id": 4,
+    "nombre": "Desodorante Old Spice",
+    "precio": 20400,
+    "imagen": "imagenes/desold.png",
+    "cantidad": 1,
+    "caracteristicas": "Frescor duradero con fragancia masculina."
+  },
+  {
+    "id": 5,
+    "nombre": "Loción Limpiadora",
+    "precio": 74000,
+    "imagen": "imagenes/loclimpia.png",
+    "cantidad": 5,
+    "caracteristicas": "Limpieza profunda para todo tipo de piel, sin resecar."
+  },
+  {
+    "id": 6,
+    "nombre": "Shampoo El Vive Hialurónico",
+    "precio": 24100,
+    "imagen": "imagenes/shamelv.png",
+    "cantidad": 5,
+    "caracteristicas": "Rellena e hidrata el cabello, dejándolo sedoso y brillante."
+  },
+  {
+    "id": 7,
+    "nombre": "Shampoo Old Spice",
+    "precio": 39000,
+    "imagen": "imagenes/shamold.png",
+    "cantidad": 4,
+    "caracteristicas": "Limpieza profunda y fragancia intensa para el cabello masculino."
+  }
+]

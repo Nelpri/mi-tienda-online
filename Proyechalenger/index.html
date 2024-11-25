@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador y Desencriptador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <h1>Encriptador y Desencriptador</h1>
+      <label for="texto">Texto a encriptar/desencriptar:</label>
+      <textarea id="texto" placeholder="Escribe tu texto aquí..."></textarea>
+      <p class="hint">Solo minúsculas y sin acento</p>
+      <div class="btn-container">
+        <button class="btn" onclick="encriptarTexto()">Encriptar</button>
+        <button id="desencriptar-btn" class="btn" onclick="desencriptarTexto()">Desencriptar</button>
+      </div>
+    </div>
+    <div class="result-container" id="resultado-container">
+      <label class="result-label">Resultado:</label>
+      <textarea id="resultado" class="result-textarea" readonly></textarea>
+      <div id="no-texto" class="no-texto">No hay texto</div>
+      <button class="btn" onclick="copiarTexto()">Copiar</button>
+    </div>
+  </div>
+  <footer>
+    Desarrollado por Nelson Prieto, julio 2024
+  </footer>
+  <script>
+    document.getElementById('texto').addEventListener('input', function () {
+      var texto = this.value;
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      var desencriptarBtn = document.getElementById('desencriptar-btn');
+      if (texto === '') {
+        resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+        noTexto.style.display = 'block';
+        desencriptarBtn.disabled = true;
+      } else {
+        resultadoTextarea.style.backgroundImage = 'none';
+        noTexto.style.display = 'none';
+        desencriptarBtn.disabled = false;
+      }
+    });
+
+    function encriptarTexto() {
+      var texto = document.getElementById('texto').value;
+      var resultado = texto
+        .replace(/e/g, 'enter')
+        .replace(/i/g, 'imes')
+        .replace(/a/g, 'ai')
+        .replace(/o/g, 'ober')
+        .replace(/u/g, 'ufat');
+      document.getElementById('resultado').value = resultado;
+      document.getElementById('texto').value = '';
+      mostrarResultado();
+      document.getElementById('desencriptar-btn').disabled = true;
+    }
+
+    function desencriptarTexto() {
+      var texto = document.getElementById('texto').value || document.getElementById('resultado').value;
+      var resultado = texto
+        .replace(/enter/g, 'e')
+        .replace(/imes/g, 'i')
+        .replace(/ai/g, 'a')
+        .replace(/ober/g, 'o')
+        .replace(/ufat/g, 'u');
+      document.getElementById('resultado').value = resultado;
+      document.getElementById('texto').value = resultado;
+      mostrarResultado();
+      document.getElementById('desencriptar-btn').disabled = false;
+    }
+
+    function mostrarResultado() {
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      var texto = document.getElementById('resultado').value;
+      resultadoTextarea.style.backgroundImage = texto === '' ? 'url("Muñeco.png")' : 'none';
+      noTexto.style.display = texto === '' ? 'block' : 'none';
+    }
+
+    function copiarTexto() {
+      var resultadoTextarea = document.getElementById('resultado');
+      var textoTextarea = document.getElementById('texto');
+      textoTextarea.value = resultadoTextarea.value;
+      alert('Texto copiado al campo de entrada');
+      resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+      document.getElementById('no-texto').style.display = 'block';
+      document.getElementById('desencriptar-btn').disabled = false;
+    }
+
+    window.onload = function () {
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+      noTexto.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

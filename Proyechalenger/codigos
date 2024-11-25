@@ -1,0 +1,229 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador y Desencriptador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <h1>Encriptador y Desencriptador</h1>
+      <label for="texto">Texto a encriptar/desencriptar:</label>
+      <textarea id="texto" placeholder="Escribe tu texto aquí..."></textarea>
+      <p class="hint">Solo minúsculas y sin acento</p>
+      <div class="btn-container">
+        <button class="btn" onclick="encriptarTexto()">Encriptar</button>
+        <button id="desencriptar-btn" class="btn" onclick="desencriptarTexto()">Desencriptar</button>
+      </div>
+    </div>
+    <div class="result-container" id="resultado-container">
+      <label class="result-label">Resultado:</label>
+      <textarea id="resultado" class="result-textarea" readonly></textarea>
+      <div id="no-texto" class="no-texto">No hay texto</div>
+      <button class="btn" onclick="copiarTexto()">Copiar</button>
+    </div>
+  </div>
+  <footer>
+    Desarrollado por Nelson Prieto, julio 2024
+  </footer>
+  <script>
+    document.getElementById('texto').addEventListener('input', function () {
+      var texto = this.value;
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      var desencriptarBtn = document.getElementById('desencriptar-btn');
+      if (texto === '') {
+        resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+        noTexto.style.display = 'block';
+        desencriptarBtn.disabled = true;
+      } else {
+        resultadoTextarea.style.backgroundImage = 'none';
+        noTexto.style.display = 'none';
+        desencriptarBtn.disabled = false;
+      }
+    });
+
+    function encriptarTexto() {
+      var texto = document.getElementById('texto').value;
+      var resultado = texto
+        .replace(/e/g, 'enter')
+        .replace(/i/g, 'imes')
+        .replace(/a/g, 'ai')
+        .replace(/o/g, 'ober')
+        .replace(/u/g, 'ufat');
+      document.getElementById('resultado').value = resultado;
+      document.getElementById('texto').value = '';
+      mostrarResultado();
+      document.getElementById('desencriptar-btn').disabled = true;
+    }
+
+    function desencriptarTexto() {
+      var texto = document.getElementById('texto').value || document.getElementById('resultado').value;
+      var resultado = texto
+        .replace(/enter/g, 'e')
+        .replace(/imes/g, 'i')
+        .replace(/ai/g, 'a')
+        .replace(/ober/g, 'o')
+        .replace(/ufat/g, 'u');
+      document.getElementById('resultado').value = resultado;
+      document.getElementById('texto').value = resultado;
+      mostrarResultado();
+      document.getElementById('desencriptar-btn').disabled = false;
+    }
+
+    function mostrarResultado() {
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      var texto = document.getElementById('resultado').value;
+      resultadoTextarea.style.backgroundImage = texto === '' ? 'url("Muñeco.png")' : 'none';
+      noTexto.style.display = texto === '' ? 'block' : 'none';
+    }
+
+    function copiarTexto() {
+      var resultadoTextarea = document.getElementById('resultado');
+      var textoTextarea = document.getElementById('texto');
+      textoTextarea.value = resultadoTextarea.value;
+      alert('Texto copiado al campo de entrada');
+      resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+      document.getElementById('no-texto').style.display = 'block';
+      document.getElementById('desencriptar-btn').disabled = false;
+    }
+
+    window.onload = function () {
+      var resultadoTextarea = document.getElementById('resultado');
+      var noTexto = document.getElementById('no-texto');
+      resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
+      noTexto.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+CSS
+
+:root {
+  --color-primario: #4CAF50;
+  --color-secundario: #ffffff;
+  --color-terciario: #555555;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: calc(100vh - 60px); /* Ajustar para dejar espacio al footer */
+  box-sizing: border-box;
+}
+
+.input-container, .result-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--color-primario);
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid var(--color-primario);
+  border-radius: 5px;
+  resize: none;
+}
+
+.btn-container {
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: darkgreen; /* Cambia el color al pasar el cursor */
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+}
+
+.result-label {
+  color: var(--color-secundario);
+  margin-bottom: 8px;
+}
+
+.result-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid var(--color-primario);
+  border-radius: 5px;
+  resize: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150px 150px;
+  background-image: url('Muñeco.png');
+}
+
+.no-texto {
+  color: var(--color-terciario);
+  font-size: 12px;
+  font-weight: bold;
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+  text-align: center;
+  position: fixed; /* Cambiar de absolute a fixed */
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-container, .result-container {
+    width: 100%;
+  }
+}
+

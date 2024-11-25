@@ -1,0 +1,31 @@
+:root {
+    /* Colores vibrantes */
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --neutral-c: #F0F8FF; /* Azul claro */
+    --gris-oscuro: #585858;
+    --grafito: #2B2B2B;  /* Más oscuro */
+    --rojo: #FF4500;      /* Rojo anaranjado */
+}
+
+
+* {
+    font-family: Montserrat;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si es necesario */
+    background: linear-gradient(to right, #FF7E5F, #FEB47B); /* Gradiente de fondo */
+    color: #333; /* Color del texto */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    min-height: 100vh; /* Ocupa todo el alto de la ventana */
+    padding: 20px;
+}

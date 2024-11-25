@@ -1,0 +1,196 @@
+/* Componentes de productos */
+.productos-mosaico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.producto {
+  position: relative;
+  transition: transform 0.3s;
+  width: 100%; /* Asegura que los productos ocupen el espacio completo de su contenedor */
+  max-width: 300px; /* Limita el ancho máximo para dispositivos grandes */
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.productos-mosaico img {
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Hover en productos */
+.productos-mosaico a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.productos-mosaico a:hover img {
+  transform: scale(1.2);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Características del producto */
+.productos-mosaico a .caracteristica {
+  position: absolute;
+  top: 100%; /* Coloca el texto justo debajo de la imagen */
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primario);
+  color: var(--color-texto-exito);
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  opacity: 0; /* Inicialmente oculto */
+  display: none; /* Inicialmente no se muestra */
+  transition: opacity 0.3s ease, top 0.3s ease;
+  z-index: 2;
+}
+
+.productos-mosaico a:hover .caracteristica {
+  opacity: 1; /* Muestra las características al hacer hover */
+  top: calc(100% + 5px); /* Coloca el texto debajo de la imagen con un pequeño espacio */
+  display: block; /* Asegura que se muestre */
+}
+
+/* Mensajes */
+#mensaje {
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.mensaje-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--color-mensaje-error);
+  color: var(--color-texto-error);
+  border: 1px solid var(--color-mensaje-error);
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  z-index: 1000;
+}
+
+.confirmacion-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmacion {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.confirmacion p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-confirmar {
+  background-color: var(--color-primario);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background-color: var(--color-primario);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.btn-confirmar:hover, .btn-cancelar:hover {
+  opacity: 0.9;
+}
+
+/* Carrito */
+.resumen-carrito {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad */
+
+/* Pantalla grande (escritorios) */
+@media (min-width: 1024px) {
+  .productos-mosaico {
+    justify-content: space-between;
+  }
+
+  .producto {
+    width: calc(33.33% - 10px); /* Tres productos por fila */
+  }
+
+  .productos-mosaico img {
+    height: 200px; /* Ajusta la altura de las imágenes */
+  }
+}
+
+/* Pantalla mediana (tabletas) */
+@media (max-width: 1024px) and (min-width: 600px) {
+  .producto {
+    width: calc(50% - 10px); /* Dos productos por fila */
+  }
+
+  .productos-mosaico img {
+    height: 180px; /* Ajusta la altura de las imágenes */
+  }
+}
+
+/* Pantalla pequeña (móviles) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+
+  .producto {
+    width: 100%; /* Un solo producto por fila */
+  }
+
+  .productos-mosaico img {
+    height: 150px; /* Ajusta la altura de las imágenes */
+  }
+
+  .productos-mosaico a .caracteristica {
+    font-size: 10px; /* Reduce el tamaño de la fuente para móviles */
+    padding: 3px; /* Reduce el padding para móviles */
+  }
+}

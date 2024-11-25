@@ -1,0 +1,201 @@
+/* Fuentes y estilo base */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo de la cabecera */
+.header {
+    background-color: #0984e3;
+    padding: 10px;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los enlaces */
+}
+
+.header__menu__link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header__menu__link:hover {
+    color: #81ecec;
+}
+
+/* Presentación principal */
+.presentacion {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #dfe6e9;
+    flex-wrap: wrap; /* Hace que se ajusten los elementos si el espacio es pequeño */
+}
+
+.presentacion__contenido {
+    max-width: 600px;
+    flex: 1;
+    margin-right: 30px;
+}
+
+.presentacion__contenido__titulo {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.presentacion__contenido__texto {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.presentacion__enlaces {
+    margin-top: 30px;
+}
+
+.presentacion__enlaces__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0984e3;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.presentacion__enlaces__link img {
+    width: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.presentacion__enlaces__link:hover img {
+    transform: scale(1.1);
+}
+
+/* Imagen con animación */
+.presentacion img {
+    max-width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 1.5s ease;
+    flex: 1;
+}
+
+/* Estilo del carrusel */
+.carrusel {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.proyecto {
+    display: none; /* Ocultar todos los proyectos por defecto */
+}
+
+.proyectos {
+    margin: 20px 0;
+}
+
+/* Estilo de los puntos */
+.carrusel__puntos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.carrusel__punto {
+    width: 10px;
+    height: 10px;
+    background-color: #0984e3;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrusel__punto:hover {
+    background-color: #74b9ff;
+}
+
+/* Estilo de los botones del carrusel */
+.carrusel__anterior,
+.carrusel__siguiente {
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrusel__anterior:hover,
+.carrusel__siguiente:hover {
+    background-color: #74b9ff;
+}
+
+/* Estilo del formulario de contacto */
+.contacto {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Alinea los elementos al centro */
+    gap: 10px; /* Espacio entre los campos */
+}
+
+.contacto label {
+    align-self: flex-start; /* Alinea las etiquetas a la izquierda */
+    margin-left: 20%; /* Ajusta la posición de las etiquetas */
+}
+
+.contacto input,
+.contacto textarea {
+    width: 60%; /* Ajusta el ancho de los campos */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contacto textarea {
+    resize: none; /* Deshabilita el redimensionado del área de texto */
+}
+
+.contacto button {
+    background-color: #0984e3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contacto button:hover {
+    background-color: #74b9ff;
+}
+
+
+/* Estilo del footer */
+.footer {
+    text-align: center;
+    background-color: #0984e3;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinar el Número</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Juego de Adivinar el Número</h1>
+        <img src="imagen.jpg" alt="Juego de Adivinar el Número" class="game-image">
+        <p id="message">Adivina el número entre 1 y 10.</p>
+        <input type="number" id="userGuess" placeholder="Escribe tu número aquí" min="1" max="10">
+        <button id="submitGuess">Enviar</button>
+        <p id="attempts"></p>
+        <p id="finalMessage"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Compras</h1>
+    <div id="input-section">
+        <label for="action">¿Deseas añadir o eliminar un alimento de la lista de compras?</label>
+        <select id="action">
+            <option value="add">Añadir</option>
+            <option value="remove">Eliminar</option>
+        </select>
+        <label for="food-name">Nombre del alimento:</label>
+        <input type="text" id="food-name" placeholder="Ej. Zanahoria">
+        <label for="category">Categoría:</label>
+        <select id="category" onchange="changeCategory()">
+            <option value="frutas">Frutas</option>
+            <option value="lacteos">Lácteos</option>
+            <option value="verduras">Verduras</option>
+            <option value="lonchera">Lonchera</option>
+            <option value="licores">Licores</option>
+            <option value="aseo">Aseo</option>
+            <option value="farmacia">Farmacia</option>
+            <option value="casa">Casa</option>
+            <option value="otros">Otros</option>
+        </select>
+        <button onclick="processAction()">Confirmar</button>
+        <button onclick="displayList()">Finalizar y mostrar lista</button>
+    </div>
+    <div id="output-section">
+        <h2>Lista de Compras:</h2>
+        <ul id="shopping-list"></ul>
+        <div id="message"></div> <!-- Área para mostrar mensajes -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

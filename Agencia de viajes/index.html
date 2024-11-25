@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nelpri's Tours</title>
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+    <header class="encabezado__container">
+        <div class="encabezado">
+            <!-- El logo debe tener un alt más descriptivo -->
+            <img src="./img/logobranco-1@2x.png" alt="Logo de la agencia de viajes" class="encabezado__logo--icono">
+            <nav aria-label="Navegación principal">
+                <ul class="encabezado__navegacion--lista">
+                    <li class="encabezado__navegacion--elemento"><a href="#" aria-label="Ir al inicio">Inicio</a></li>
+                    <li class="encabezado__navegacion--elemento"><a href="#" aria-label="Ver ofertas disponibles">Ofertas</a></li>
+                    <li class="encabezado__navegacion--elemento"><a href="#" aria-label="Ver destinos">Destinos</a></li>
+                    <li class="encabezado__navegacion--elemento"><a href="#" aria-label="Ver testimonios de clientes">Testimonios</a></li>
+                    <li class="encabezado__navegacion--elemento"><a href="#" aria-label="Ir a la página de contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- El contenido principal debe estar envuelto en una etiqueta main -->
+        <section class="banner" aria-labelledby="banner-title">
+            <div class="banner__wrapper">
+                <figure class="banner__img--wrapper">
+                    <img class="banner__img" alt="Hombre remando en una canoa en Maldivas" src="./img/maldivas@2x.png" />
+                    <figcaption id="banner-title" class="banner__img--descripcion">
+                        Somos una agencia apasionada por crear viajes inolvidables. Desde el destino hasta la selección de actividades,
+                        nos encargamos de todos los detalles para que disfrutes al máximo cada momento de tu jornada.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+</body>
+
+
+<main class="container">
+    <section class="ofertas__container">
+        <div class="ofertas__titulo">
+            <h2 class="ofertas__titulo--texto">Ofertas de la semana</h2>
+            <div class="ofertas__titulo--subrayado"></div>
+        </div>
+        
+        <section class="ofertas">
+            <!-- Oferta Japón -->
+            <article class="ofertas__cards--elemento ofertas__cards--japon" aria-labelledby="oferta-japon-titulo">
+                <div class="ofertas__card">
+                    <div class="ofertas__card--contenido">
+                        <header class="ofertas__card--destino">
+                            <p class="ofertas__card--destino-tipo">HOTEL + AÉREO</p>
+                            <h3 id="oferta-japon-titulo" class="ofertas__card--destino-nombre">Japón</h3>
+                        </header>
+                        <div class="ofertas__card--precio">$ 4000</div>
+                        <div class="ofertas__card--boton">
+                            <!-- Asegúrate de que el botón sea accesible -->
+                            <a href="#" class="ofertas__card--boton-texto" aria-label="Ver detalles de la oferta para Japón">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Oferta San Andreas -->
+            <article class="ofertas__cards--elemento ofertas__cards--san-andreas" aria-labelledby="oferta-san-andreas-titulo">
+                <div class="ofertas__card">
+                    <div class="ofertas__card--contenido">
+                        <header class="ofertas__card--destino">
+                            <p class="ofertas__card--destino-tipo">HOTEL + AÉREO</p>
+                            <h3 id="oferta-san-andreas-titulo" class="ofertas__card--destino-nombre">San Andreas</h3>
+                        </header>
+                        <div class="ofertas__card--precio">$ 3000</div>
+                        <div class="ofertas__card--boton">
+                            <!-- Usamos un span como botón con rol de botón para asegurar la accesibilidad -->
+                            <span class="ofertas__card--boton-texto" role="button" tabindex="0" aria-label="Ver detalles de la oferta para San Andreas">Ver detalles</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+</main>
+
+
+<div class="busca">
+    <header class="busca__titulo">
+        <h2>Busca por Categoría</h2>
+        <div class="busca__titulo--subrayado"></div>
+    </header>
+    
+    <div class="busca__categorias">
+        <!-- Paquetes Nacionales -->
+        <div class="busca__categoria" aria-labelledby="categoria-nacionales">
+            <div class="busca__categoria--icono">
+                <span class="material-symbols-outlined">hiking</span>
+            </div>
+            <h3 id="categoria-nacionales" class="busca__categoria--nombre">Paquetes Nacionales</h3>
+        </div>
+        
+        <!-- Paquetes Internacionales -->
+        <div class="busca__categoria" aria-labelledby="categoria-internacionales">
+            <div class="busca__categoria--icono">
+                <span class="material-symbols-outlined">flight</span>
+            </div>
+            <h3 id="categoria-internacionales" class="busca__categoria--nombre">Paquetes Internacionales</h3>
+        </div>
+
+        <!-- Transfer -->
+        <div class="busca__categoria" aria-labelledby="categoria-transfer">
+            <div class="busca__categoria--icono">
+                <span class="material-symbols-outlined">airport_shuttle</span>
+            </div>
+            <h3 id="categoria-transfer" class="busca__categoria--nombre">Transfer</h3>
+        </div>
+
+        <!-- Seguro de Viaje -->
+        <div class="busca__categoria" aria-labelledby="categoria-seguro">
+            <div class="busca__categoria--icono">
+                <span class="material-symbols-outlined">vpn_lock</span>
+            </div>
+            <h3 id="categoria-seguro" class="busca__categoria--nombre">Seguro de Viaje</h3>
+        </div>
+    </div>
+</div>
+
+<div class="destinos">
+    <header class="destinos__titulo">
+        <h2 class="destinos__titulo--texto">Destinos Populares</h2>
+        <div class="destinos__titulo--subrayado"></div>
+    </header>
+    
+    <div class="destinos__lista">
+        <!-- Tokyo -->
+        <article class="destinos__elemento" aria-labelledby="destino-tokyo">
+            <img class="destinos__elemento--image" alt="Vista de Tokyo con sus templos y rascacielos icónicos" src="./img/tokyo@2x.png" />
+            <h3 id="destino-tokyo" class="destinos__elemento--nombre">Tokyo</h3>
+            <p class="destinos__elemento--descripcion">
+                Tóquio es una ciudad vibrante y cosmopolita, con sus templos históricos,
+                museos de arte moderno y rascacielos icónicos. No pierdas la oportunidad de sumergirte
+                en su fascinante atmósfera.
+            </p>
+            <div class="destinos__elemento--boton-container">
+                <button class="destinos__elemento--boton" aria-label="Ver detalles de Tokyo">
+                    <span class="destinos__elemento--boton-texto">Ver detalles</span>
+                </button>
+            </div>
+        </article>
+
+        <!-- Osaka -->
+        <article class="destinos__elemento" aria-labelledby="destino-osaka">
+            <img class="destinos__elemento--image" alt="Vista de Osaka, famosa por su gastronomía" src="./img/osaka@2x.png" />
+            <h3 id="destino-osaka" class="destinos__elemento--nombre">Osaka</h3>
+            <p class="destinos__elemento--descripcion">
+                Osaka es una ciudad animada y moderna en Japón. La ciudad es famosa por su
+                deliciosa gastronomía y por ser un excelente punto de partida para explorar
+                otras ciudades japonesas cercanas.
+            </p>
+            <div class="destinos__elemento--boton-container">
+                <button class="destinos__elemento--boton" aria-label="Ver detalles de Osaka">
+                    <span class="destinos__elemento--boton-texto">Ver detalles</span>
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+        <div class="pago">
+            <div class="pago__titulo">
+                <div class="pago__titulo--texto">Condiciones de Pago</div>
+                <div class="pago__titulo--subrayado"></div>
+            </div>
+            <div class="pago__condiciones">
+                <div class="pago__condiciones--descripcion">
+                    <div class="pago__condiciones--destaque">"¡Pago a plazos de hasta 12 cuotas!"</dov>
+                    <div class="pago__condiciones--detalles">
+                        ¡ Viaja pagando en hasta 12 cuotas con tarjeta,
+                         al contado en crédito con un descuento del 5% !
+                    </div>
+                </div>
+                <div class="pago__imagenes">
+                    <div class="pago__imagenes--grupo">
+                        <div class="pago__imagenes--imagen-container">
+                            <img class="pago__imagenes--imagen" alt="" src="./img/montaje-japo-1@2x.png" />
+                        </div>
+                        <div class="pago__imagenes--imagen-container">
+                            <img class="pago__imagenes--imagen" alt="" src="./img/montaje-japo-2@2x.png" />
+                        </div>
+                    </div>
+                    <div class="pago__imagenes--imagen-destaque">
+                        <img class="pago__imagenes--imagen" alt="" src="./img/montaje-japo-3@2x.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonios">
+            <div class="testimonios__titulo">
+                <b class="testimonios__titulo--texto">Testimonios</b>
+                <div class="testimonios__titulo--subrayado"></div>
+            </div>
+            <div class="testimonios__wrapper">
+                <div class="testimonios__elemento">
+                    <div class="testimonios__texto">
+                        Nelpri's Tours ha sido una de las mejores agencias de viajes
+                        que he experimentado. El servicio al cliente fue
+                        excepcional, y todo el equipo fue muy atento y servicial.
+                    </div>
+                    <div class="testimonios__autor">
+                        <img class="testimonios__autor--foto" src="./img/ellipse-1@2x.png" />
+                        <div class="testimonios__autor--info">
+                            <b class="testimonios__autor--nombre">Ana Lópes</b>
+                            <div class="testimonios__autor--evaluacion">
+                                <img class="testimonios__autor--evaluacion-estrella" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" src="./img/star-1.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonios__elemento">
+                    <div class="testimonios__texto">
+                        Recomiendo firmemente la agencia de viajes  Nelpri's Tours. 
+                        Ofrecen un servicio personalizado y de alta calidad que 
+                        superó mis expectativas en mi último viaje.
+                    </div>
+                    <div class="testimonios__autor">
+                        <img class="testimonios__autor--foto" alt="" src="./img/avatar-amari@2x.png" />
+                        <div class="testimonios__autor--info">
+                            <b class="testimonios__autor--nombre">Amari Salin</b>
+                            <div class="testimonios__autor--evaluacion">
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonios__elemento">
+                    <div class="testimonios__texto">
+                        ¡Mi viaje con Nelpri's Tours fue increíble!
+                         Te la recomiendo mucho si buscas una 
+                         experiencia emocionante y personalizada.
+                    </div>
+                    <div class="testimonios__autor">
+                        <img class="testimonios__autor--foto" alt="" src="./img/avatar-lauro@2x.png" />
+                        <div class="testimonios__autor--info">
+                            <b class="testimonios__autor--nombre">Lauro B. Matos</b>
+                            <div class="testimonios__autor--evaluacion">
+                                
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                                <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <img class="pre-footer__image" alt="" src="./img/pre-footer-image.png" />
+    
+    <footer class="footer__container">
+        <div class="footer">
+            <div class="footer__logo-container">
+                <img class="footer__logo-icon" alt="" src="./img/logobranco-1@2x.png" />
+                <div class="footer__info-container">
+                    <div class="footer__text-info">
+                        Horario de atendimiento: 08h - 20h (Lunes a Sábado)                    </div>
+                    <div class="footer__text-info">
+                        Desarrollado por Alura Latam. Proyecto fictício sin fines comerciales.                    </div>
+                </div>
+            </div>
+            <div class="footer__social-media-container">
+                <div class="footer__social-media-text">Accede a nuestras redes sociales:</div>
+                <div class="footer__social-media-icons">
+                    <a href="">
+                        <img class="footer__social-media-icon" alt="" src="./img/whatsapp-1.svg" />
+                    </a>
+                    <a href="">
+                        <img class="footer__social-media-icon" alt="" src="./img/instragam-1.svg" />
+                    </a>
+                    <a href="">
+                        <img class="footer__social-media-icon" alt="" src="./img/twiter-1.svg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>; 

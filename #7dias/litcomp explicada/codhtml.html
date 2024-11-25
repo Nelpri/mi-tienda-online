@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <!-- Enlace al archivo CSS para los estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Compras</h1>
+    <div id="input-section">
+        <!-- Campo de entrada para el nombre del alimento -->
+        <label for="food-name">Nombre del alimento:</label>
+        <input type="text" id="food-name" placeholder="Ej. Zanahoria">
+        
+        <!-- Menú desplegable para seleccionar la categoría del alimento -->
+        <label for="category">Categoría:</label>
+        <select id="category" onchange="changeCategory()">
+            <option value="frutas">Frutas</option>
+            <option value="lacteos">Lácteos</option>
+            <option value="verduras">Verduras</option>
+            <option value="lonchera">Lonchera</option>
+            <option value="licores">Licores</option>
+            <option value="otros">Otros</option>
+        </select>
+
+        <!-- Botón para agregar el alimento a la lista -->
+        <button onclick="addFood()">Agregar alimento</button>
+
+        <!-- Botón para finalizar y mostrar la lista de compras -->
+        <button onclick="displayList()">Finalizar y mostrar lista</button>
+    </div>
+    
+    <div id="output-section">
+        <!-- Título para la lista de compras -->
+        <h2>Lista de Compras:</h2>
+        
+        <!-- Elemento de lista no ordenada para mostrar los alimentos agrupados -->
+        <ul id="shopping-list"></ul>
+    </div>
+
+    <!-- Enlace al archivo JavaScript que contiene la lógica del programa -->
+    <script src="script.js"></script>
+</body>
+</html>

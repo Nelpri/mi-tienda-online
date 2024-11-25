@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+
+</head>
+<body>
+    <div id="mensaje-container" class="mensaje-container"></div>
+
+    <header>
+        <h1>Mi Tienda Virtual</h1>
+        <nav>
+            <a href="#" id="btn-inicio" tabindex="0" aria-label="Ir a la sección de inicio">Inicio</a>
+            <a href="#" id="btn-productos" tabindex="0" aria-label="Ir a la sección de productos">Productos</a>
+            <a href="#" id="btn-carrito" tabindex="0" aria-label="Ir a la sección del carrito">Carrito</a>
+            <a href="#" id="btn-contacto" tabindex="0" aria-label="Ir a la sección de contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion activa">
+            <h2>Bienvenido a Mi Tienda Virtual</h2>
+            <p>En nuestra tienda encontrarás productos de alta calidad para tu bienestar personal.</p>
+            <div class="productos-mosaico">
+                <a href="#catalogo" data-descripcion="Crema para peinar de alta calidad. Ideal para un acabado perfecto.">
+                    <img src="imagenes/crempein.jpeg" alt="Crema para peinar de alta calidad">
+                    <span class="caracteristica">Crema para peinar de alta calidad. Ideal para un peinado perfecto.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Tratamiento Nutribela para el cuidado del cabello. Hidrata y nutre.">
+                    <img src="imagenes/tratnutrib.jpeg" alt="Tratamiento Nutribela para el cuidado del cabello">
+                    <span class="caracteristica">Tratamiento Nutribela para el cuidado del cabello. Hidrata y nutre.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Bálsamo labial hidratante. Mantiene tus labios suaves y protegidos.">
+                    <img src="imagenes/balsmlabial.jpg" alt="Bálsamo labial hidratante">
+                    <span class="caracteristica">Bálsamo labial hidratante. Mantiene tus labios suaves y protegidos.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Desodorante Old Spice. Protección duradera y fresca.">
+                    <img src="imagenes/desold.png" alt="Desodorante Old Spice">
+                    <span class="caracteristica">Desodorante Old Spice. Protección duradera y fresca.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Loción limpiadora. Elimina impurezas y refresca la piel.">
+                    <img src="imagenes/loclimpia.png" alt="Loción limpiadora">
+                    <span class="caracteristica">Loción limpiadora. Elimina impurezas y refresca la piel.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Shampoo Elvive Hialurónico. Aporta hidratación profunda.">
+                    <img src="imagenes/shamelv.png" alt="Shampoo Elvive Hialurónico">
+                    <span class="caracteristica">Shampoo Elvive Hialurónico. Aporta hidratación profunda.</span>
+                </a>
+                <a href="#catalogo" data-descripcion="Shampoo Old Spice. Limpieza efectiva y aroma duradero.">
+                    <img src="imagenes/shamold.png" alt="Shampoo Old Spice">
+                    <span class="caracteristica">Shampoo Old Spice. Limpieza efectiva y aroma duradero.</span>
+                </a>
+               
+                
+            </div>
+            <div id="descripcion-producto" class="descripcion-producto"></div>
+        </section>
+        
+
+        <section id="catalogo" class="seccion">
+            <h2>Catálogo de Productos</h2>
+            <div id="resumen-carrito" class="resumen-carrito">
+                <p id="resumen-texto">Carrito: 0 artículos - Total: $0</p>
+            </div>
+            <div id="productos-container" class="productos-mosaico"></div>
+        </section>
+
+        <section id="carrito" class="seccion">
+            <h2>Carrito de Compras</h2>
+            <div id="carrito-contenido">
+                <p>El carrito está vacío.</p>
+            </div>
+            <p id="total">Total: $0</p>
+            <button id="btn-reiniciar" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
+        </section>
+        
+        <section id="contacto" class="seccion">
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta, no dudes en <a href="https://www.tienda-contacto.com" target="_blank" aria-label="Contactarnos">contactarnos</a>.</p>
+        </section>
+
+        <div id="mensaje" class="mensaje" role="alert"></div>
+    </main>
+
+    <footer>
+        <p>Derechos reservados &copy; 2024 Mi Tienda</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Estilo para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif; /* Fuente base */
+    margin: 20px; /* Espaciado alrededor del contenido */
+    background-color: #f4f4f4; /* Color de fondo claro */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Estilo para el título principal */
+h1 {
+    color: #007bff; /* Color azul para el título */
+    text-align: center; /* Centrar el título */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilo para la sección de entrada de datos */
+#input-section {
+    margin-bottom: 20px; /* Espaciado inferior */
+    padding: 20px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para las etiquetas de los campos de entrada */
+label {
+    margin-right: 10px; /* Espaciado derecho */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"] {
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    width: 60%; /* Ancho del 60% del contenedor */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para el menú desplegable */
+select {
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    width: auto; /* Ajustar ancho al contenido */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para los botones */
+button {
+    padding: 10px 20px; /* Espaciado interno en los botones */
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    margin-right: 10px; /* Espaciado derecho */
+}
+
+/* Estilo para los botones al pasar el ratón */
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+/* Estilo para la sección de salida */
+#output-section {
+    margin-top: 20px; /* Espaciado superior */
+}
+
+/* Estilo para la lista de compras */
+ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0; /* Sin espaciado interno */
+}
+
+/* Estilo para los elementos de la lista */
+li {
+    margin: 5px 0; /* Espaciado superior e inferior */
+    padding: 10px; /* Espaciado interno */
+    background-color: #e9ecef; /* Fondo gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo para el botón de nueva lista */
+#shopping-list button {
+    margin-top: 20px; /* Espaciado superior */
+    background-color: #28a745; /* Color verde para el botón de nueva lista */
+}
+
+#shopping-list button:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+}
