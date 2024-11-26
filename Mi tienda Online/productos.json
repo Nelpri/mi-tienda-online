@@ -4,7 +4,7 @@
     "nombre": "Crema para peinar",
     "precio": 16000,
     "imagen": "imagenes/crempein.jpeg",
-    "cantidad": 3,
+    "cantidad": 5,
     "caracteristicas": "Hidrata y define los rizos sin dejar residuos grasos."
   },
   {
@@ -52,7 +52,7 @@
     "nombre": "Shampoo Old Spice",
     "precio": 39000,
     "imagen": "imagenes/shamold.png",
-    "cantidad": 4,
+    "cantidad": 5,
     "caracteristicas": "Limpieza profunda y fragancia intensa para el cabello masculino."
   }
 ]
